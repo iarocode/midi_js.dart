@@ -34,10 +34,10 @@ class MidiJsLoader {
     List<String> jsFiles = ['dom_loader.js', 'tekartik_load_plugin.js', 'dom_loader.js', //
       'plugin.js', 'player.js', 'base64_binary.js'];
     for (String jsFile in jsFiles) {
-      futures.add(_loadJavascriptScript(posix.join(rootUrl, 'js', jsFile)));
+      futures.add(_loadJavascriptScript(path.posix.join(rootUrl, 'js', jsFile)));
     }
     return Future.wait(futures).then((_) {
-      return new MidiJs(posix.join(rootUrl, 'soundfont', '')); // Midi js expect a trailing /
+      return new MidiJs(path.posix.join(rootUrl, 'soundfont', '')); // Midi js expect a trailing /
     });
   }
 
